@@ -1,4 +1,4 @@
-package Leetcode_solution;
+import java.util.*;
 import java.util.*;
 public class leetcode210 {
     public static void main(String[] args) {

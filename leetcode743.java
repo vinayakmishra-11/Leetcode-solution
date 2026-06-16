@@ -1,5 +1,4 @@
-package Leetcode_solution;
-import
+
 
 import java.util.*;
 public class leetcode743 {

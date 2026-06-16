@@ -1,7 +1,4 @@
-package Leetcode_solution;
-
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class leetcode547 {
 
