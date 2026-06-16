@@ -1,6 +1,5 @@
 import java.util.*;
 
-import java.util.*;
 
 public class leetcode15 {
     public static void main(String[] args) {
