@@ -1,4 +1,4 @@
-
+import java.util.*;
 class Solution {
     public int rearrangeCharacters(String s, String target) {
         HashMap<Character,Integer> target_map = new HashMap<>();
