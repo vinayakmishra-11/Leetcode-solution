@@ -43,12 +43,35 @@ class Solution {
 
         }
     }
+
+    public static void dfs(int sr , int sc , char[][] grid, boolean[][] visited){
+        visited[sr][sc] = true;
+        int nr = grid.length;
+        int nc = grid[0].length;
+          if(sc>0 &&  visited[sr][sc-1]==false && grid[sr][sc-1]=='1'){ //going left column decresing
+                dfs(sr,sc-1,grid,visited);
+            } 
+          if(sc<nc-1 &&   visited[sr][sc+1]==false && grid[sr][sc+1]=='1'){ //going right column inc
+                dfs(sr,sc+1,grid,visited);
+            } 
+
+             if(sr>0 &&   visited[sr-1][sc]==false && grid[sr-1][sc]=='1'){ //going up row dec
+                dfs(sr-1,sc,grid,visited);
+            } 
+
+            
+             if(sr<nr-1 &&   visited[sr+1][sc]==false && grid[sr+1][sc]=='1'){ //going down row inc
+               dfs(sr+1,sc,grid,visited);
+            } 
+
+    }
     public int numIslands(char[][] grid) {
         boolean[][] visited = new boolean[grid.length][grid[0].length];
         int count =0;
         for(int i =0 ;i<grid.length;i++){
             for(int j =0 ;j<grid[0].length;j++){
                if(grid[i][j] == '1' && !visited[i][j]){
+                    dfs(i,j,grid,visited);
                     bfs(i,j,grid,visited);
                     count++;
                 }
