@@ -47,3 +47,25 @@ class Solution {
         return ans;
     }
 }
+
+class Solution {
+    
+
+    public int sumOfLeftLeaves(TreeNode root) {
+      return   DFS(root, false);
+         
+    }
+
+    int DFS(TreeNode root, boolean left) {
+        if (root == null)
+            return 0;
+
+        if (root.left == null && root.right == null) {
+            if (left) {
+                return root.val;
+            }
+            return 0;
+        } 
+        return DFS(root.left, true) + DFS(root.right, false);
+    }
+}
