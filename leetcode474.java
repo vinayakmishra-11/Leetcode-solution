@@ -23,8 +23,6 @@ class Solution {
         
         if(NoZeros(strs[i])<=m && NoOnes(strs[i])<=n){
             take=1+ help(strs,m-NoZeros(strs[i]),n-NoOnes(strs[i]),i+1,dp);
-        }else{
-             take = help(strs,m,n,i+1,dp);
         }
         
         return dp[m][n][i]=Math.max(take,skip);
