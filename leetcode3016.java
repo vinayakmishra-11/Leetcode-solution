@@ -50,3 +50,35 @@ class Solution {
        
     }
 }
+
+------------------------------------------------
+// BETTER CODE THAN ABOVE 
+class Solution {
+    public int minimumPushes(String word) {
+        if(word.length()<=8) return word.length();
+        int[] freq = new int[26];
+        int k =0 ;
+        while(k<word.length()){
+            char ch = word.charAt(k);
+            int x = (int)(ch-'a');
+            int y = freq[x];
+            y++;
+            freq[x]=y;
+            k++;
+        }
+        Arrays.sort(freq);
+        int ans =0;
+        int count =0;
+        int push =1 ;
+        for(int i = freq.length-1;i>=0;i--){
+            if(count!=0){
+                if(count%8==0){
+                    push++;
+                }
+            }
+            ans+=(push*freq[i]);
+            count++;
+        }
+        return ans;
+    }
+}
