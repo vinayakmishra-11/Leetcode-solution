@@ -1,0 +1,52 @@
+class Solution {
+    class Pair{
+        char ch;
+        int freq;
+        Pair(char ch , int freq){
+            this.ch=ch;
+            this.freq=freq;
+        }
+    }
+    public int minimumPushes(String word) {
+        if(word.length()<=8) return word.length();
+        HashMap<Character,Integer> map = new HashMap<>();
+
+        for(int i =0 ;i<word.length();i++){
+            char ch = word.charAt(i);
+            if(map.containsKey(ch)){
+                int freq = map.get(ch);
+                freq++;
+                map.put(ch,freq);
+            }
+            else map.put(ch,1);
+        }
+
+        ArrayList<Pair> list = new ArrayList<>();
+
+        for(HashMap.Entry<Character,Integer> entry :map.entrySet()){
+            char ch = entry.getKey();
+            int freq = entry.getValue();
+            list.add(new Pair(ch,freq));
+        }
+
+        Collections.sort(list,(a,b)->b.freq-a.freq);
+        int count =0;
+        int push =1 ;
+        int ans=0;
+        for(int i =0 ;i<list.size();i++){
+            if(count!=0){
+                if(count%8==0){
+                    push++;
+                }
+            }
+            Pair p = list.get(i);
+            int freq = p.freq;
+            ans+=(freq*push);
+            count++;
+
+        }
+
+        return ans;
+       
+    }
+}
